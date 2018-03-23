@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.31.0
+VERSION=1.30.0
 
 if [ "${FETCH}" ]; then
   if [ ! -d "nghttp2-$VERSION" ]; then
@@ -13,7 +13,7 @@ else
   cp -rf ${RPM_BUILD_DIR}/istio-proxy/nghttp2-"$VERSION" .
 
   cd nghttp2-"$VERSION"
-  aclocal 
+  aclocal
   automake
   ./configure --prefix="$THIRDPARTY_BUILD" --enable-shared=no --enable-lib-only
   make V=1 install

@@ -13,8 +13,9 @@ else
   cp -rf ${RPM_BUILD_DIR}/istio-proxy/gperftools-"$VERSION" .
 
   cd gperftools-"$VERSION"
+
+  LDFLAGS="-lpthread" ./configure --prefix="$THIRDPARTY_BUILD" --enable-shared=no --enable-frame-pointers --disable-libunwind
   aclocal
   automake
-  LDFLAGS="-lpthread" ./configure --prefix="$THIRDPARTY_BUILD" --enable-shared=no --enable-frame-pointers --disable-libunwind
   make V=1 install
 fi

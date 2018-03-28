@@ -9,7 +9,7 @@ if [ "${FETCH}" ]; then
     (cd benchmark; git reset --hard "$COMMIT")
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy/benchmark .
+  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/benchmark .
   mkdir build
   cd build
 

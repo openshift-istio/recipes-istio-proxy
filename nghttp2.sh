@@ -10,7 +10,7 @@ if [ "${FETCH}" ]; then
     tar xf nghttp2-"$VERSION".tar.gz
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy/nghttp2-"$VERSION" .
+  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/nghttp2-"$VERSION" .
 
   cd nghttp2-"$VERSION"
   aclocal 

@@ -10,7 +10,7 @@ if [ "${FETCH}" ]; then
     tar xf yaml-cpp-"$VERSION".tar.gz
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy/yaml-cpp-yaml-cpp-"$VERSION" .
+  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/yaml-cpp-yaml-cpp-"$VERSION" .
 
   cd yaml-cpp-yaml-cpp-"$VERSION"
   cmake -DCMAKE_INSTALL_PREFIX:PATH="$THIRDPARTY_BUILD" \

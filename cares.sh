@@ -15,7 +15,7 @@ if [ "${FETCH}" ]; then
     tar xf c-ares-"$VERSION".tar.gz
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy/c-ares-"$VERSION" .
+  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/c-ares-"$VERSION" .
 
   cd c-ares-"$VERSION"
   aclocal

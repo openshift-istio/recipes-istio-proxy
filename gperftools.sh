@@ -10,7 +10,7 @@ if [ "${FETCH}" ]; then
     tar xf gperftools-"$VERSION".tar.gz
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/gperftools-"$VERSION" .
+  cp -rf ${RECIPES_DIR}/gperftools-"$VERSION" .
 
   cd gperftools-"$VERSION"
   aclocal

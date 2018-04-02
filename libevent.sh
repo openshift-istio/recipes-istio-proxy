@@ -10,7 +10,7 @@ if [ "${FETCH}" ]; then
     tar xf libevent-"$VERSION".tar.gz
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/libevent-"$VERSION" .
+  cp -rf ${RECIPES_DIR}/libevent-"$VERSION" .
 
   cd libevent-"$VERSION"
   aclocal

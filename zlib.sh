@@ -10,7 +10,7 @@ if [ "${FETCH}" ]; then
     tar xf zlib-"$VERSION".tar.gz
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/zlib-"$VERSION" .
+  cp -rf ${RECIPES_DIR}/zlib-"$VERSION" .
 
   cd zlib-"$VERSION"
   ./configure --prefix="$THIRDPARTY_BUILD"

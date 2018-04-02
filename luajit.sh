@@ -10,7 +10,7 @@ if [ "${FETCH}" ]; then
     tar xf LuaJIT-"$VERSION".tar.gz
   fi
 else
-  cp -rf ${RPM_BUILD_DIR}/istio-proxy-${PROXY_GIT_BRANCH}/LuaJIT-"$VERSION" .
+  cp -rf ${RECIPES_DIR}/LuaJIT-"$VERSION" .
 
   cd LuaJIT-"$VERSION"
 

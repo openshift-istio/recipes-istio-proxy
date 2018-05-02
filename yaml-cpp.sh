@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=0.6.1
+VERSION=0.6.2
 
 if [ "${FETCH}" ]; then
   if [ ! -d "yaml-cpp-yaml-cpp-$VERSION" ]; then

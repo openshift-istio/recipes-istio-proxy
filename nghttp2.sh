@@ -2,7 +2,7 @@
 
 set -e
 
-VERSION=1.31.0
+VERSION=1.32.0
 
 if [ "${FETCH}" ]; then
   if [ ! -d "nghttp2-$VERSION" ]; then

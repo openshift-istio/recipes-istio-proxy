@@ -18,6 +18,7 @@ if [ "${FETCH}" ]; then
 else
   cp -rf ${RECIPES_DIR}/c-ares-"$VERSION" .
   cd c-ares-"$VERSION"
+  aclocal
   ./buildconf
   ./configure --prefix="$THIRDPARTY_BUILD" --enable-shared=no --enable-lib-only \
     --enable-debug --enable-optimize

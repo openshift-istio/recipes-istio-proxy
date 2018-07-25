@@ -12,6 +12,8 @@ if [ "${FETCH}" ]; then
 else
   cp -rf ${RECIPES_DIR}/libevent-"$VERSION" .
   cd libevent-"$VERSION"
+  aclocal
+  automake
   ./configure --prefix="$THIRDPARTY_BUILD" --enable-shared=no --disable-libevent-regress --disable-openssl
   make V=1 install
 fi

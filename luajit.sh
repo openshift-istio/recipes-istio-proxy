@@ -4,12 +4,17 @@ set -e
 
 VERSION=2.0.5
 
-wget -O LuaJIT-"$VERSION".tar.gz https://github.com/LuaJIT/LuaJIT/archive/v"$VERSION".tar.gz
-tar xf LuaJIT-"$VERSION".tar.gz
-cd LuaJIT-"$VERSION"
+if [ "${FETCH}" ]; then
+  if [ ! -d "LuaJIT-$VERSION" ]; then
+    wget -O LuaJIT-"$VERSION".tar.gz https://github.com/LuaJIT/LuaJIT/archive/v"$VERSION".tar.gz
+    tar xf LuaJIT-"$VERSION".tar.gz
+  fi
+else
+  cp -rf ${RECIPES_DIR}/LuaJIT-"$VERSION" .
+  cd LuaJIT-"$VERSION"
 
-# Fixup Makefile with things that cannot be set via env var.
-cat > ../luajit_make.diff << 'EOF'
+  # Fixup Makefile with things that cannot be set via env var.
+  cat > ../luajit_make.diff << 'EOF'
 diff --git a/src/Makefile b/src/Makefile
 index f7f81a4..e698517 100644
 --- a/src/Makefile
@@ -55,6 +60,7 @@ index f7f81a4..e698517 100644
  
  ##############################################################################
 EOF
-patch -p1 < ../luajit_make.diff
+  patch -p1 < ../luajit_make.diff
 
-DEFAULT_CC=${CC} TARGET_CFLAGS=${CFLAGS} TARGET_LDFLAGS=${CFLAGS} CFLAGS="" make V=1 PREFIX="$THIRDPARTY_BUILD" install
+  DEFAULT_CC=${CC} TARGET_CFLAGS=${CFLAGS} TARGET_LDFLAGS=${CFLAGS} CFLAGS="" make V=1 PREFIX="$THIRDPARTY_BUILD" install
+fi
